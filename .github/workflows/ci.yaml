@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: orbis-net
+
+      # The engine is a separate private repository, so CI checks it out and
+      # points this package at it rather than resolving a git dependency it
+      # has no credentials for. This step is the visible cost of the split;
+      # a monorepo would not need it.
+      - uses: actions/checkout@v4
+        with:
+          repository: Orbis-Engine/orbis
+          path: orbis
+          token: ${{ secrets.ORBIS_ENGINE_TOKEN }}
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          # Pinned: a formatter that moves under the repository turns an
+          # unrelated SDK release into a red build.
+          sdk: 3.13.0
+
+      - name: Link the engine
+        working-directory: orbis-net
+        run: ./tool/link_local.sh ../orbis
+
+      - name: Check
+        working-directory: orbis-net
+        run: ./tool/check.sh

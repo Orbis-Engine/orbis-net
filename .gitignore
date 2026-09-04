@@ -1,0 +1,8 @@
+.DS_Store
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# Written by tool/link_local.sh for working against a sibling checkout.
+pubspec_overrides.yaml
