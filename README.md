@@ -8,7 +8,7 @@ is a handful of bulk copies rather than five hundred lookups. That is the
 engine's storage decision paying for itself a second time.
 
 ```sh
-git clone git@github.com:Orbis-Engine/orbis.git       # beside this one
+git clone https://github.com/Orbis-Engine/orbis.git       # beside this one
 ./tool/link_local.sh                                   # point at that checkout
 ./tool/check.sh
 ```
@@ -28,4 +28,5 @@ git clone git@github.com:Orbis-Engine/orbis.git       # beside this one
 
 ## Licence
 
-MIT.
+MIT, © 2026 Chris Beckett. Nothing third-party ships inside this one — see
+[LICENSE](LICENSE).
