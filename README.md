@@ -28,4 +28,5 @@ git clone https://github.com/Orbis-Engine/orbis.git       # beside this one
 
 ## Licence
 
-MIT.
+MIT, © 2026 Chris Beckett. Nothing third-party ships inside this one — see
+[LICENSE](LICENSE).
