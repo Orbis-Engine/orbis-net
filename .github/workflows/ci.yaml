@@ -19,9 +19,10 @@ jobs:
       # a monorepo would not need it.
       - uses: actions/checkout@v4
         with:
+          # No token: these repositories are public, so the default
+          # GITHUB_TOKEN reads them. Nothing here needs a secret.
           repository: Orbis-Engine/orbis
           path: orbis
-          token: ${{ secrets.ORBIS_ENGINE_TOKEN }}
 
       - uses: dart-lang/setup-dart@v1
         with:
